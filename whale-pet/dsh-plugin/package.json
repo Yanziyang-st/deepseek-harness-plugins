@@ -1,0 +1,16 @@
+{
+  "name": "dsh-whale-pet",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "🐋 鲸鱼娘桌宠启动器：Harness 启动时拉起桌面桌宠，Harness 退出时自动关闭",
+  "keywords": ["dsh", "deepseek-harness", "desktop-pet", "whale", "桌宠"],
+  "license": "MIT",
+  "exports": { ".": "./index.js" },
+  "files": ["index.js", "cordis.patch.yml", "README.md"],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

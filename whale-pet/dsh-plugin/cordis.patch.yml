@@ -1,0 +1,12 @@
+# dsh-whale-pet bundle patch
+#
+# 把「鲸鱼娘桌宠启动器」这一行挂进当前 profile：
+#   Harness 启动（插件 apply）时拉起桌宠，Harness 退出（插件 dispose）时关闭桌宠。
+#
+# petScript 由 install-plugin.ps1 写成绝对路径；也可改用环境变量
+# DSH_WHALE_PET_SCRIPT，或删掉 config 让它按 bundle 相对位置去找 WhalePet.ps1。
+- insert:
+    - id: whale-pet
+      name: 'dsh-whale-pet'
+      config:
+        startDelayMs: 1200

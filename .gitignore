@@ -1,0 +1,12 @@
+# 运行时产物（每个人机器上的位置/偏好都不一样）
+settings.json
+whale-pet.log
+*.log
+
+# 第三方素材：用 fetch-assets.ps1 + prepare-assets.py 生成，不随仓库分发
+assets/
+
+# 临时 / 测试产物
+.qa/
+.probe-*.txt
+*.bak-*

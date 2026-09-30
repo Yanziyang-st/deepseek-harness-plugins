@@ -1,0 +1,185 @@
+<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Name="Art" Width="260" Height="280" Background="{x:Null}" SnapsToDevicePixels="False">
+  <Canvas.Resources>
+    <RadialGradientBrush x:Key="GlowBrush" GradientOrigin="0.5,0.5" Center="0.5,0.5" RadiusX="0.5" RadiusY="0.5">
+      <GradientStop Color="#704D6BFE" Offset="0.0"/>
+      <GradientStop Color="#334D6BFE" Offset="0.55"/>
+      <GradientStop Color="#004D6BFE" Offset="1.0"/>
+    </RadialGradientBrush>
+    <LinearGradientBrush x:Key="HoodBrush" StartPoint="0.2,0" EndPoint="0.8,1">
+      <GradientStop Color="#7FA0FF" Offset="0"/>
+      <GradientStop Color="#4D6BFE" Offset="0.5"/>
+      <GradientStop Color="#2F45C8" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="BodyBrush" StartPoint="0.2,0" EndPoint="0.8,1">
+      <GradientStop Color="#5C7BFF" Offset="0"/>
+      <GradientStop Color="#3F58E0" Offset="0.6"/>
+      <GradientStop Color="#2A3CAF" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="HairBrush" StartPoint="0.2,0" EndPoint="0.6,1">
+      <GradientStop Color="#DCE7FF" Offset="0"/>
+      <GradientStop Color="#9DB9FF" Offset="0.45"/>
+      <GradientStop Color="#5F80F5" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="FaceBrush" StartPoint="0.3,0" EndPoint="0.7,1">
+      <GradientStop Color="#FFF3EA" Offset="0"/>
+      <GradientStop Color="#FFE2D2" Offset="0.62"/>
+      <GradientStop Color="#F7C7B2" Offset="1"/>
+    </LinearGradientBrush>
+    <RadialGradientBrush x:Key="IrisBrush" GradientOrigin="0.5,0.22" Center="0.5,0.42" RadiusX="0.62" RadiusY="0.62">
+      <GradientStop Color="#B4CEFF" Offset="0"/>
+      <GradientStop Color="#4D6BFE" Offset="0.42"/>
+      <GradientStop Color="#16224F" Offset="1"/>
+    </RadialGradientBrush>
+    <LinearGradientBrush x:Key="FinBrush" StartPoint="0,0" EndPoint="0.45,1">
+      <GradientStop Color="#A9C2FF" Offset="0"/>
+      <GradientStop Color="#6E8CFF" Offset="0.45"/>
+      <GradientStop Color="#4D6BFE" Offset="1"/>
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="LineBrush" Color="#26317A"/>
+    <SolidColorBrush x:Key="BlushBrush" Color="#FF97AC"/>
+    <RadialGradientBrush x:Key="BubbleBrush" GradientOrigin="0.35,0.3" Center="0.5,0.5" RadiusX="0.5" RadiusY="0.5">
+      <GradientStop Color="#F2F8FF" Offset="0"/>
+      <GradientStop Color="#BED6FF" Offset="0.55"/>
+      <GradientStop Color="#7FA4FF" Offset="1"/>
+    </RadialGradientBrush>
+  </Canvas.Resources>
+
+  <!-- soft aura -->
+  <Ellipse x:Name="glow" Canvas.Left="16" Canvas.Top="24" Width="228" Height="242" Fill="{StaticResource GlowBrush}"/>
+
+  <!-- ground shadow -->
+  <Ellipse x:Name="shadow" Canvas.Left="92" Canvas.Top="246" Width="76" Height="20" Fill="#000000" Opacity="0.16">
+    <Ellipse.Effect><BlurEffect Radius="9"/></Ellipse.Effect>
+  </Ellipse>
+
+  <!-- whale tail (behind the body) -->
+  <Canvas x:Name="tailGroup" Width="260" Height="280" RenderTransformOrigin="0.63,0.74">
+    <Canvas.RenderTransform>
+      <RotateTransform x:Name="tailRot" Angle="0"/>
+    </Canvas.RenderTransform>
+    <Ellipse x:Name="tailStem" Canvas.Left="156" Canvas.Top="188" Width="48" Height="26" Fill="{StaticResource FinBrush}" RenderTransformOrigin="0.1,0.5">
+      <Ellipse.RenderTransform><RotateTransform Angle="-18"/></Ellipse.RenderTransform>
+    </Ellipse>
+    <Ellipse x:Name="tailUp" Canvas.Left="184" Canvas.Top="140" Width="68" Height="32" Fill="{StaticResource FinBrush}" RenderTransformOrigin="0.07,0.5">
+      <Ellipse.RenderTransform><RotateTransform Angle="-32"/></Ellipse.RenderTransform>
+    </Ellipse>
+    <Ellipse x:Name="tailDown" Canvas.Left="184" Canvas.Top="176" Width="68" Height="32" Fill="{StaticResource FinBrush}" RenderTransformOrigin="0.07,0.5">
+      <Ellipse.RenderTransform><RotateTransform Angle="30"/></Ellipse.RenderTransform>
+    </Ellipse>
+  </Canvas>
+
+  <!-- whale hoodie: hood shell behind the head -->
+  <Ellipse x:Name="hoodBack" Canvas.Left="50" Canvas.Top="26" Width="160" Height="168" Fill="{StaticResource HoodBrush}"/>
+  <!-- flipper sleeves -->
+  <Ellipse x:Name="armL" Canvas.Left="54" Canvas.Top="160" Width="34" Height="58" Fill="{StaticResource FinBrush}" RenderTransformOrigin="0.5,0.1">
+    <Ellipse.RenderTransform><RotateTransform Angle="20"/></Ellipse.RenderTransform>
+  </Ellipse>
+  <Ellipse x:Name="armR" Canvas.Left="172" Canvas.Top="160" Width="34" Height="58" Fill="{StaticResource FinBrush}" RenderTransformOrigin="0.5,0.1">
+    <Ellipse.RenderTransform><RotateTransform Angle="-20"/></Ellipse.RenderTransform>
+  </Ellipse>
+  <!-- dress -->
+  <Path x:Name="body" Fill="{StaticResource BodyBrush}" Data="M 104,144 L 156,144 L 172,206 C 176,232 164,248 130,248 C 96,248 84,232 88,206 Z"/>
+  <!-- whale belly panel -->
+  <Path x:Name="belly" Fill="#EAF1FF" Opacity="0.95" Data="M 102,176 C 114,168 146,168 158,176 C 166,196 164,214 156,226 C 146,238 114,238 104,226 C 96,214 94,196 102,176 Z"/>
+  <Path Stroke="#9BB4F0" StrokeThickness="2" Opacity="0.85" Data="M 108,196 C 119,190 141,190 152,196"/>
+  <Path Stroke="#9BB4F0" StrokeThickness="2" Opacity="0.85" Data="M 106,208 C 118,202 142,202 154,208"/>
+  <Path Stroke="#9BB4F0" StrokeThickness="2" Opacity="0.85" Data="M 105,220 C 118,214 142,214 155,220"/>
+
+  <!-- hoodie collar -->
+  <Path x:Name="collar" Fill="#2F45C8" Data="M 104,142 C 114,152 146,152 156,142 L 160,152 C 146,164 114,164 100,152 Z"/>
+
+  <!-- hood rim (fluffy edge) -->
+  <Ellipse x:Name="hoodRim" Canvas.Left="66" Canvas.Top="34" Width="128" Height="134" Fill="#F0F5FF" Opacity="0.96"/>
+  <!-- hood eyespots -->
+  <Ellipse x:Name="hoodEyeL" Canvas.Left="62" Canvas.Top="112" Width="22" Height="16" Fill="#EAF1FF" Opacity="0.85" RenderTransformOrigin="0.5,0.5">
+    <Ellipse.RenderTransform><RotateTransform Angle="-14"/></Ellipse.RenderTransform>
+  </Ellipse>
+  <Ellipse x:Name="hoodEyeR" Canvas.Left="176" Canvas.Top="112" Width="22" Height="16" Fill="#EAF1FF" Opacity="0.85" RenderTransformOrigin="0.5,0.5">
+    <Ellipse.RenderTransform><RotateTransform Angle="14"/></Ellipse.RenderTransform>
+  </Ellipse>
+
+  <!-- back hair -->
+  <Ellipse x:Name="hairBack" Canvas.Left="72" Canvas.Top="38" Width="116" Height="124" Fill="{StaticResource HairBrush}"/>
+  <!-- side hair tails -->
+  <Path x:Name="sideHairL" Fill="{StaticResource HairBrush}" Data="M 82,84 C 64,98 54,132 56,164 C 58,180 68,186 76,176 C 86,162 88,122 96,102 Z"/>
+  <Path x:Name="sideHairR" Fill="{StaticResource HairBrush}" Data="M 178,84 C 196,98 206,132 204,164 C 202,180 192,186 184,176 C 174,162 172,122 164,102 Z"/>
+
+  <!-- face -->
+  <Path x:Name="face" Fill="{StaticResource FaceBrush}" Data="M 130,46 C 168,46 186,72 184,100 C 182,128 160,150 130,150 C 100,150 78,128 76,100 C 74,72 92,46 130,46 Z"/>
+
+  <!-- blush -->
+  <Ellipse x:Name="blushL" Canvas.Left="82" Canvas.Top="112" Width="27" Height="13" Fill="{StaticResource BlushBrush}" Opacity="0.5" RenderTransformOrigin="0.5,0.5">
+    <Ellipse.RenderTransform><RotateTransform Angle="-8"/></Ellipse.RenderTransform>
+  </Ellipse>
+  <Ellipse x:Name="blushR" Canvas.Left="151" Canvas.Top="112" Width="27" Height="13" Fill="{StaticResource BlushBrush}" Opacity="0.5" RenderTransformOrigin="0.5,0.5">
+    <Ellipse.RenderTransform><RotateTransform Angle="8"/></Ellipse.RenderTransform>
+  </Ellipse>
+
+  <!-- eyes -->
+  <Canvas x:Name="eyeL" Canvas.Left="86" Canvas.Top="80" Width="36" Height="42" RenderTransformOrigin="0.5,0.45">
+    <Canvas.RenderTransform><ScaleTransform x:Name="eyeLScale" ScaleX="1" ScaleY="1"/></Canvas.RenderTransform>
+    <Ellipse Canvas.Left="2" Canvas.Top="2" Width="32" Height="38" Fill="#FFFFFF"/>
+    <Ellipse Canvas.Left="5" Canvas.Top="6" Width="26" Height="32" Fill="{StaticResource IrisBrush}"/>
+    <Ellipse Canvas.Left="11" Canvas.Top="15" Width="14" Height="18" Fill="#16224F"/>
+    <Path Canvas.Top="30" Stroke="#B9D0FF" StrokeThickness="2.4" Opacity="0.6" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Data="M 8,0 C 13,5 24,5 29,0"/>
+    <Ellipse Canvas.Left="8" Canvas.Top="8" Width="12" Height="12" Fill="#FFFFFF" Opacity="0.96"/>
+    <Ellipse Canvas.Left="21" Canvas.Top="26" Width="6" Height="6" Fill="#FFFFFF" Opacity="0.72"/>
+    <Path Fill="{StaticResource LineBrush}" Data="M 1,13 C 4,3 13,-2 18,-2 C 25,-2 33,3 35,13 C 31,5 25,2 18,2 C 12,2 5,5 1,13 Z"/>
+  </Canvas>
+  <Canvas x:Name="eyeR" Canvas.Left="138" Canvas.Top="80" Width="36" Height="42" RenderTransformOrigin="0.5,0.45">
+    <Canvas.RenderTransform><ScaleTransform x:Name="eyeRScale" ScaleX="1" ScaleY="1"/></Canvas.RenderTransform>
+    <Ellipse Canvas.Left="2" Canvas.Top="2" Width="32" Height="38" Fill="#FFFFFF"/>
+    <Ellipse Canvas.Left="5" Canvas.Top="6" Width="26" Height="32" Fill="{StaticResource IrisBrush}"/>
+    <Ellipse Canvas.Left="11" Canvas.Top="15" Width="14" Height="18" Fill="#16224F"/>
+    <Path Canvas.Top="30" Stroke="#B9D0FF" StrokeThickness="2.4" Opacity="0.6" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Data="M 8,0 C 13,5 24,5 29,0"/>
+    <Ellipse Canvas.Left="8" Canvas.Top="8" Width="12" Height="12" Fill="#FFFFFF" Opacity="0.96"/>
+    <Ellipse Canvas.Left="21" Canvas.Top="26" Width="6" Height="6" Fill="#FFFFFF" Opacity="0.72"/>
+    <Path Fill="{StaticResource LineBrush}" Data="M 1,13 C 4,3 13,-2 18,-2 C 25,-2 33,3 35,13 C 31,5 25,2 18,2 C 12,2 5,5 1,13 Z"/>
+  </Canvas>
+  <!-- closed happy eyes -->
+  <Canvas x:Name="eyeSmile" Width="260" Height="280" Visibility="Collapsed">
+    <Path Stroke="{StaticResource LineBrush}" StrokeThickness="3.6" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Data="M 92,104 C 100,92 114,92 122,104"/>
+    <Path Stroke="{StaticResource LineBrush}" StrokeThickness="3.6" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Data="M 138,104 C 146,92 160,92 168,104"/>
+  </Canvas>
+
+  <!-- mouth -->
+  <Path x:Name="mouth" Stroke="#C4695E" StrokeThickness="2.6" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Data="M 122,124 C 126,131 134,131 138,124"/>
+
+  <!-- bangs -->
+  <Path x:Name="bangs" Fill="{StaticResource HairBrush}" Data="M 74,98 C 66,62 92,40 130,40 C 168,40 194,62 186,98 C 180,86 172,78 164,76 C 158,90 148,94 140,84 C 132,96 120,98 112,86 C 106,96 96,98 90,88 C 84,92 78,94 74,98 Z"/>
+  <!-- hair highlight -->
+  <Path x:Name="hairShine" Fill="#FFFFFF" Opacity="0.3" Data="M 96,60 C 108,48 128,44 142,48 C 128,54 112,60 102,72 C 98,77 94,80 92,78 C 92,70 93,64 96,60 Z"/>
+  <!-- ahoge: tiny whale fluke -->
+  <Canvas x:Name="ahoge" Width="260" Height="280" RenderTransformOrigin="0.5,0.11">
+    <Canvas.RenderTransform><RotateTransform x:Name="ahogeRot" Angle="0"/></Canvas.RenderTransform>
+    <Ellipse Canvas.Left="126" Canvas.Top="6" Width="38" Height="19" Fill="{StaticResource FinBrush}" RenderTransformOrigin="0.86,0.92">
+      <Ellipse.RenderTransform><RotateTransform Angle="-40"/></Ellipse.RenderTransform>
+    </Ellipse>
+    <Ellipse Canvas.Left="96" Canvas.Top="6" Width="38" Height="19" Fill="{StaticResource FinBrush}" RenderTransformOrigin="0.14,0.92">
+      <Ellipse.RenderTransform><RotateTransform Angle="40"/></Ellipse.RenderTransform>
+    </Ellipse>
+  </Canvas>
+
+  <!-- sparkles / bubbles -->
+  <Canvas x:Name="bubbles" Width="260" Height="280">
+    <Ellipse x:Name="bub1" Canvas.Left="214" Canvas.Top="120" Width="16" Height="16" Fill="{StaticResource BubbleBrush}" Opacity="0.9"/>
+    <Ellipse x:Name="bub2" Canvas.Left="232" Canvas.Top="164" Width="11" Height="11" Fill="{StaticResource BubbleBrush}" Opacity="0.85"/>
+    <Ellipse x:Name="bub3" Canvas.Left="206" Canvas.Top="196" Width="8" Height="8" Fill="{StaticResource BubbleBrush}" Opacity="0.8"/>
+  </Canvas>
+
+  <!-- sleep marker -->
+  <Canvas x:Name="zzz" Width="260" Height="280" Visibility="Collapsed">
+    <TextBlock Canvas.Left="190" Canvas.Top="50" FontFamily="Segoe UI" FontWeight="Bold" FontSize="18" Foreground="#EAF1FF" Text="z"/>
+    <TextBlock Canvas.Left="206" Canvas.Top="30" FontFamily="Segoe UI" FontWeight="Bold" FontSize="22" Foreground="#DCE7FF" Text="Z"/>
+    <TextBlock Canvas.Left="226" Canvas.Top="8" FontFamily="Segoe UI" FontWeight="Bold" FontSize="16" Foreground="#C9D9FF" Text="z"/>
+  </Canvas>
+
+  <!-- speech bubble (hidden by default) -->
+  <Canvas x:Name="bubbleGroup" Width="260" Height="280" Visibility="Collapsed">
+    <Path x:Name="bubbleBg" Fill="#FFFFFF" Opacity="0.96" Stroke="#4D6BFE" StrokeThickness="2"
+          Data="M 10,8 C 10,2 15,0 22,0 L 238,0 C 245,0 250,3 250,10 L 250,44 C 250,51 245,54 238,54 L 40,54 C 30,54 22,58 16,66 C 14,68 10,67 10,62 Z"/>
+    <TextBlock x:Name="bubbleText" Canvas.Left="22" Canvas.Top="12" Width="216" FontFamily="Microsoft YaHei UI, Segoe UI" FontSize="15" FontWeight="SemiBold" Foreground="#26347A" TextWrapping="Wrap" TextAlignment="Center" Text="主人，我在这儿哦～"/>
+  </Canvas>
+</Canvas>
