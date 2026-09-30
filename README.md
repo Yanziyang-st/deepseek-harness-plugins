@@ -7,9 +7,9 @@
 
 | 插件 | 说明 | 目录 |
 | --- | --- | --- |
-| 🐋 **鲸鱼娘桌宠** | Harness 一"收起"（点最小化 / 点关闭收进托盘 / 切到别的软件失焦），桌面上就浮出鲸鱼娘；Harness 启动时自动拉起、退出时自动关闭。零依赖（PowerShell 5.1 + WPF），会读 DSH 会话状态换表情 | [`whale-pet/`](whale-pet/) |
+| 🐋 **大肥鱼桌宠** | Harness 一"收起"（点最小化 / 点关闭收进托盘 / 切到别的软件失焦），桌面上就浮出大肥鱼；Harness 启动时自动拉起、退出时自动关闭。零依赖（PowerShell 5.1 + WPF），会读 DSH 会话状态换表情 | [`whale-pet/`](whale-pet/) |
 
-## 安装：鲸鱼娘桌宠
+## 安装：大肥鱼桌宠
 
 **前置条件**：Windows 10/11 + 系统自带的 Windows PowerShell 5.1 + DSH 桌面版。
 **不需要** Node / npm / Electron / Python（只有重新下载素材时才用到 Python+Pillow，脚本会自动找 DSH 自带的）。
@@ -55,7 +55,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\install-plugin.ps1
 ## 仓库结构
 
 ```
-whale-pet/                 🐋 鲸鱼娘桌宠
+whale-pet/                 🐋 大肥鱼桌宠
   WhalePet.ps1             桌宠主程序（窗口检测、浮窗、动画、交互、托盘、看门狗）
   WhaleArt.xaml            内置矢量画兜底
   dsh-plugin/              DSH 插件包（Harness 启动拉起 / 退出关闭）
